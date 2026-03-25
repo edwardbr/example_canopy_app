@@ -1,9 +1,9 @@
 /*
  *   Greeting server
- *   Listens on TCP port 7777 (configurable) and serves greet/add/get_server_info calls.
+ *   Listens on TCP port 8080 (configurable) and serves greet/add/get_server_info calls.
  *
  *   Build: cmake --preset Coroutine && cmake --build build_coroutine --target server
- *   Run:   ./build_coroutine/output/server [--host 127.0.0.1] [--port 7777]
+ *   Run:   ./build_coroutine/output/server [--host 127.0.0.1] [--port 8080]
  */
 
 #include <rpc/rpc.h>
@@ -56,11 +56,10 @@ namespace
         for (int i = 0; i < argc; ++i)
             result.argv.push_back(argv[i]);
 
-        const bool has_any_va = has_cli_option(argc, argv, "--va-name") || has_cli_option(argc, argv, "--va-type")
-                                || has_cli_option(argc, argv, "--va-prefix")
-                                || has_cli_option(argc, argv, "--va-subnet-bits")
-                                || has_cli_option(argc, argv, "--va-object-id-bits")
-                                || has_cli_option(argc, argv, "--va-subnet");
+        const bool has_any_va
+            = has_cli_option(argc, argv, "--va-name") || has_cli_option(argc, argv, "--va-type")
+              || has_cli_option(argc, argv, "--va-prefix") || has_cli_option(argc, argv, "--va-subnet-bits")
+              || has_cli_option(argc, argv, "--va-object-id-bits") || has_cli_option(argc, argv, "--va-subnet");
         const bool has_listen = has_cli_option(argc, argv, "--listen");
 
         auto append = [&result](std::initializer_list<const char*> args)
@@ -74,12 +73,13 @@ namespace
 
         if (!has_any_va)
         {
-            append({"--va-name=server",
-                "--va-type=ipv4",
-                "--va-prefix=127.0.0.1",
-                "--va-subnet-bits=32",
-                "--va-object-id-bits=32",
-                "--va-subnet=1"});
+            append(
+                {"--va-name=server",
+                    "--va-type=ipv4",
+                    "--va-prefix=127.0.0.1",
+                    "--va-subnet-bits=32",
+                    "--va-object-id-bits=32",
+                    "--va-subnet=1"});
         }
 
         if (!has_listen)
@@ -256,9 +256,6 @@ int main(
             std::cerr << "Configuration error: " << e.what() << "\n";
             return 1;
         }
-
-        if (cfg.listen_endpoints.front().port == 0)
-            cfg.listen_endpoints.front().port = 7777;
 
         cfg.log_values();
     }

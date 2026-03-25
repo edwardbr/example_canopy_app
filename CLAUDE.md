@@ -47,6 +47,6 @@ Binaries land in `build_coroutine/output/`.
 - Include generated headers as `<greeting/greeting.h>`, not `_stub.h` or `_proxy.h`.
 - `CanopyGenerate(greeting …)` produces the `greeting_idl` CMake target.
 - Both executables also need: `transport_streaming streaming_tcp rpc canopy_network_config ${CANOPY_LIBRARIES}`.
-- Default port is 7777; both executables accept `--host` / `--port` / `--routing-prefix`.
+- Default port is 8080; both executables accept `--host` / `--port` / `--routing-prefix`.
 - `rpc_log(int, const char*, size_t)` must be defined in each translation unit that
   uses Canopy logging macros when telemetry is disabled.
