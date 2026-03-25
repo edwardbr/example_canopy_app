@@ -1,0 +1,36 @@
+Language: Cpp
+BasedOnStyle: WebKit
+IndentWidth: 4
+ColumnLimit: 120
+# Force pointers/references to the type for C++.
+# See: https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#Rl-ptr
+DerivePointerAlignment: false
+
+AlignAfterOpenBracket: DontAlign
+AlignOperands: true
+AlignTrailingComments: true
+AllowAllParametersOfDeclarationOnNextLine: true
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: Inline
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+AlwaysBreakAfterReturnType: None
+BinPackArguments: false
+BinPackParameters: AlwaysOnePerLine
+BreakAfterOpenBracketFunction: true
+BreakBeforeBraces: Allman
+BreakBeforeTernaryOperators: true
+IndentPPDirectives: AfterHash
+PPIndentWidth: 2
+IndentCaseLabels: false
+InsertNewlineAtEOF: true
+SortIncludes: false
+SpaceAfterCStyleCast: false
+SpaceAfterTemplateKeyword: false
+SpaceBeforeAssignmentOperators: true
+SpacesInSquareBrackets: false
+Cpp11BracedListStyle: true
+NamespaceIndentation: All
+PenaltyExcessCharacter: 5
+PointerAlignment: Left
+SpaceBeforeCpp11BracedList: false

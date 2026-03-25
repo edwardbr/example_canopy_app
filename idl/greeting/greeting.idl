@@ -1,0 +1,19 @@
+/*
+ *   Greeting service IDL
+ *   Simple example showing client/server communication over TCP
+ */
+
+namespace greeting_app
+{
+    interface i_greeter
+    {
+        [description="Greet a named person, returns a greeting message"]
+        int greet([in] const std::string& name, [out] std::string& response);
+
+        [description="Add two integers"]
+        int add(int a, int b, [out] int& res);
+
+        [description="Get information about the server"]
+        int get_server_info([out] std::string& info);
+    };
+}

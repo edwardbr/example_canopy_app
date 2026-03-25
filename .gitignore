@@ -1,0 +1,14 @@
+/build*
+CMakeUserPresets.json
+# VSCode user-specific files (ignore these)
+.vscode/launch.json
+.vscode/tasks.json
+.vscode/.ropeproject
+# VSCode shared project files (commit these)
+!.vscode/settings.json
+!.vscode/extensions.json
+node_modules
+.cache
+venv
+__pycache__/
+*.pyc
