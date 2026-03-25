@@ -47,6 +47,7 @@ target_link_libraries(
           streaming_tcp
           rpc
           canopy_network_config
+          rpc_log
           ${CANOPY_LIBRARIES})
 
 # ---------------------------------------------------------------------------
@@ -64,6 +65,7 @@ target_link_libraries(
           streaming_tcp
           rpc
           canopy_network_config
+          rpc_log
           ${CANOPY_LIBRARIES})
 
 message(STATUS "greeting_app configured")
